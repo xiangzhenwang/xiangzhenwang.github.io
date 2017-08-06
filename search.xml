@@ -1,43 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-    
-    <entry>
-      <title><![CDATA[Windows下生成SSH Key]]></title>
-      <url>/2017/07/28/SSH%20Key%E7%94%9F%E6%88%90/</url>
-      <content type="html"><![CDATA[<h4 id="1-SSH-Key是什么？"><a href="#1-SSH-Key是什么？" class="headerlink" title="1.SSH Key是什么？"></a>1.SSH Key是什么？</h4><p>SSH key提供了一种与GitHub通信的方式，通过这种方式，能够在不输入密码的情况下，将GitHub作为自己的remote端服务器，进行版本控制。</p>
-<a id="more"></a>
-<h4 id="2-检查SSH-keys是否存在"><a href="#2-检查SSH-keys是否存在" class="headerlink" title="2.检查SSH keys是否存在"></a>2.检查SSH keys是否存在</h4><p>在git终端输入：<code>ls -al ~/.ssh</code>&emsp;检查SSH keys是否存在，如图：</p>
-<p>1.本地不存在ssh key</p>
-<p><img src="http://i.imgur.com/BJ3fAlY.png" alt=""></p>
-<p>2.本地已经生成ssh key，那就直接跳过第二步，进行第三步操作。</p>
-<p><img src="http://i.imgur.com/CXNdzol.png" alt=""></p>
-<h4 id="3-生成新的ssh-key"><a href="#3-生成新的ssh-key" class="headerlink" title="3.生成新的ssh key"></a>3.生成新的ssh key</h4><p>在git终端输入：  </p>
-<p><code>ssh-keygen -t rsa -C &quot;XX@github&quot;</code>&emsp;引号中是你在github上的注册邮箱，中间一直回车就好了，最后生成如下图：</p>
-<p><img src="http://i.imgur.com/BAFytPQ.png" alt=""></p>
-<p>将新生成的key添加到ssh-agent中</p>
-<pre><code>eval &quot;$(ssh-agent -s)&quot;
-Agent pid 59566
-ssh-add ~/.ssh/id_rsa
-</code></pre><h4 id="4-将ssh-key添加到GitHub中"><a href="#4-将ssh-key添加到GitHub中" class="headerlink" title="4.将ssh key添加到GitHub中"></a>4.将ssh key添加到GitHub中</h4><p>用文本编辑器打开id_rsa.pub文件，里面的信息即为SSH key，将这些信息复制到GitHub的Add SSH key页面即可，一下提供不同的操作系统，直接将SSH key从文件拷贝到粘贴板中，如下：</p>
-<p><strong>mac</strong></p>
-<pre><code>pbcopy &lt; ~/.ssh/id_rsa.pub
-</code></pre><p><strong>windows</strong></p>
-<pre><code>clip &lt; ~/.ssh/id_rsa.pub
-</code></pre><p><strong>linux</strong></p>
-<pre><code>sudo apt-get install xclip
-</code></pre><p><br></p>
-<h1 id="OK大功告成，妈妈再也不用担心我输密码了！"><a href="#OK大功告成，妈妈再也不用担心我输密码了！" class="headerlink" title="OK大功告成，妈妈再也不用担心我输密码了！"></a>OK大功告成，妈妈再也不用担心我输密码了！</h1>]]></content>
-      
-        
-        <tags>
-            
-            <tag> Android </tag>
-            
-        </tags>
-        
-    </entry>
-    
-  
-  
+<search>
+  <entry>
+    <title><![CDATA[Windows下生成SSH Key]]></title>
+    <url>%2F2017%2F07%2F28%2FSSH%20Key%E7%94%9F%E6%88%90%2F</url>
+    <content type="text"><![CDATA[1.SSH Key是什么？SSH key提供了一种与GitHub通信的方式，通过这种方式，能够在不输入密码的情况下，将GitHub作为自己的remote端服务器，进行版本控制。 2.检查SSH keys是否存在在git终端输入：ls -al ~/.ssh&emsp;检查SSH keys是否存在，如图： 1.本地不存在ssh key 2.本地已经生成ssh key，那就直接跳过第二步，进行第三步操作。 3.生成新的ssh key在git终端输入： ssh-keygen -t rsa -C &quot;XX@github&quot;&emsp;引号中是你在github上的注册邮箱，中间一直回车就好了，最后生成如下图： 将新生成的key添加到ssh-agent中 eval &quot;$(ssh-agent -s)&quot; Agent pid 59566 ssh-add ~/.ssh/id_rsa 4.将ssh key添加到GitHub中用文本编辑器打开id_rsa.pub文件，里面的信息即为SSH key，将这些信息复制到GitHub的Add SSH key页面即可，一下提供不同的操作系统，直接将SSH key从文件拷贝到粘贴板中，如下： mac pbcopy &lt; ~/.ssh/id_rsa.pub windows clip &lt; ~/.ssh/id_rsa.pub linux sudo apt-get install xclip 12345678910111213141516171819202122public class CheckBean &#123; private boolean isClick; private String str; public CheckBean(boolean isClick, String str) &#123; this.isClick = isClick; this.str = str; &#125; public String getStr() &#123; return str; &#125; public void setStr(String str) &#123; this.str = str; &#125; public boolean isClick() &#123; return isClick; &#125; public void setClick(boolean click) &#123; isClick = click; &#125;&#125; OK大功告成，妈妈再也不用担心我输密码了！]]></content>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
 </search>

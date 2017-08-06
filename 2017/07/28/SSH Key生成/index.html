@@ -104,7 +104,7 @@
 <meta property="og:image" content="http://i.imgur.com/BJ3fAlY.png">
 <meta property="og:image" content="http://i.imgur.com/CXNdzol.png">
 <meta property="og:image" content="http://i.imgur.com/BAFytPQ.png">
-<meta property="og:updated_time" content="2017-08-05T14:20:43.787Z">
+<meta property="og:updated_time" content="2017-08-06T02:42:44.103Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows下生成SSH Key">
 <meta name="twitter:description" content="1.SSH Key是什么？SSH key提供了一种与GitHub通信的方式，通过这种方式，能够在不输入密码的情况下，将GitHub作为自己的remote端服务器，进行版本控制。">
@@ -353,6 +353,17 @@
 
           
           
+             <span id="/2017/07/28/SSH Key生成/" class="leancloud_visitors" data-flag-title="Windows下生成SSH Key">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -392,6 +403,7 @@ ssh-add ~/.ssh/id_rsa
 </code></pre><p><strong>linux</strong></p>
 <pre><code>sudo apt-get install xclip
 </code></pre><p><br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">public class CheckBean &#123;</div><div class="line">    private boolean isClick;</div><div class="line">    private String str;</div><div class="line">    public CheckBean(boolean isClick, String str) &#123;</div><div class="line">        this.isClick = isClick;</div><div class="line">        this.str = str;</div><div class="line">    &#125;</div><div class="line">    public String getStr() &#123;</div><div class="line">        return str;</div><div class="line">    &#125;</div><div class="line">    public void setStr(String str) &#123;</div><div class="line">        this.str = str;</div><div class="line">    &#125;</div><div class="line">    public boolean isClick() &#123;</div><div class="line">        return isClick;</div><div class="line">    &#125;</div><div class="line">    public void setClick(boolean click) &#123;</div><div class="line">        isClick = click;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="OK大功告成，妈妈再也不用担心我输密码了！"><a href="#OK大功告成，妈妈再也不用担心我输密码了！" class="headerlink" title="OK大功告成，妈妈再也不用担心我输密码了！"></a>OK大功告成，妈妈再也不用担心我输密码了！</h1>
       
     </div>
@@ -1152,6 +1164,113 @@ ssh-add ~/.ssh/id_rsa
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("rVRO56ywvbv0FCbKUwWBgRV6-gzGzoHsz", "uUi7aE515NprH53d98o2zRHS");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
