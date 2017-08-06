@@ -380,14 +380,31 @@
 
       
         
-          <h4 id="1-SSH-Key是什么？"><a href="#1-SSH-Key是什么？" class="headerlink" title="1.SSH Key是什么？"></a>1.SSH Key是什么？</h4><p>SSH key提供了一种与GitHub通信的方式，通过这种方式，能够在不输入密码的情况下，将GitHub作为自己的remote端服务器，进行版本控制。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/28/SSH Key生成/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h4 id="1-SSH-Key是什么？"><a href="#1-SSH-Key是什么？" class="headerlink" title="1.SSH Key是什么？"></a>1.SSH Key是什么？</h4><p>SSH key提供了一种与GitHub通信的方式，通过这种方式，能够在不输入密码的情况下，将GitHub作为自己的remote端服务器，进行版本控制。</p>
+<h4 id="2-检查SSH-keys是否存在"><a href="#2-检查SSH-keys是否存在" class="headerlink" title="2.检查SSH keys是否存在"></a>2.检查SSH keys是否存在</h4><p>在git终端输入：<code>ls -al ~/.ssh</code>&emsp;检查SSH keys是否存在，如图：</p>
+<p>1.本地不存在ssh key</p>
+<p><img src="http://i.imgur.com/BJ3fAlY.png" alt=""></p>
+<p>2.本地已经生成ssh key，那就直接跳过第二步，进行第三步操作。</p>
+<p><img src="http://i.imgur.com/CXNdzol.png" alt=""></p>
+<h4 id="3-生成新的ssh-key"><a href="#3-生成新的ssh-key" class="headerlink" title="3.生成新的ssh key"></a>3.生成新的ssh key</h4><p>在git终端输入：  </p>
+<p><code>ssh-keygen -t rsa -C &quot;XX@github&quot;</code>&emsp;引号中是你在github上的注册邮箱，中间一直回车就好了，最后生成如下图：</p>
+<p><img src="http://i.imgur.com/BAFytPQ.png" alt=""></p>
+<p>将新生成的key添加到ssh-agent中</p>
+<pre><code>eval &quot;$(ssh-agent -s)&quot;
+Agent pid 59566
+ssh-add ~/.ssh/id_rsa
+</code></pre><h4 id="4-将ssh-key添加到GitHub中"><a href="#4-将ssh-key添加到GitHub中" class="headerlink" title="4.将ssh key添加到GitHub中"></a>4.将ssh key添加到GitHub中</h4><p>用文本编辑器打开id_rsa.pub文件，里面的信息即为SSH key，将这些信息复制到GitHub的Add SSH key页面即可，一下提供不同的操作系统，直接将SSH key从文件拷贝到粘贴板中，如下：</p>
+<p><strong>mac</strong></p>
+<pre><code>pbcopy &lt; ~/.ssh/id_rsa.pub
+</code></pre><p><strong>windows</strong></p>
+<pre><code>clip &lt; ~/.ssh/id_rsa.pub
+</code></pre><p><strong>linux</strong></p>
+<pre><code>sudo apt-get install xclip
+</code></pre><p><br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">public class CheckBean &#123;</div><div class="line">    private boolean isClick;</div><div class="line">    private String str;</div><div class="line">    public CheckBean(boolean isClick, String str) &#123;</div><div class="line">        this.isClick = isClick;</div><div class="line">        this.str = str;</div><div class="line">    &#125;</div><div class="line">    public String getStr() &#123;</div><div class="line">        return str;</div><div class="line">    &#125;</div><div class="line">    public void setStr(String str) &#123;</div><div class="line">        this.str = str;</div><div class="line">    &#125;</div><div class="line">    public boolean isClick() &#123;</div><div class="line">        return isClick;</div><div class="line">    &#125;</div><div class="line">    public void setClick(boolean click) &#123;</div><div class="line">        isClick = click;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="OK大功告成，妈妈再也不用担心我输密码了！"><a href="#OK大功告成，妈妈再也不用担心我输密码了！" class="headerlink" title="OK大功告成，妈妈再也不用担心我输密码了！"></a>OK大功告成，妈妈再也不用担心我输密码了！</h1>
+          
         
       
     </div>
