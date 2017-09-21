@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -93,17 +93,25 @@
 
 
 
-<meta name="description" content="你迷茫的原因往往只有一个：那就是在本该拼命去努力的年纪，想得太多，做得太少！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://xiangzhenwang.top/about/index.html">
+<meta name="description" content="前言说到屏幕适配，说简单也不简单，说难也不难，关键是看自己是否掌握了适配的机制和规则。前几天问了一个朋友他现在公司对于适配是怎么做的，然后他就跟我巴拉巴拉说了一大堆，最后总结出来说：“都是这么干的”，对于为什么这么干的解释就有点含糊不清了。正好最近公司这边也出现了部分机子的适配问题，所以就想自己整理总结一下。">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android屏幕适配机制和规则">
+<meta property="og:url" content="http://xiangzhenwang.top/2017/09/18/Android屏幕适配的机制和规则/index.html">
 <meta property="og:site_name" content="Choshim">
-<meta property="og:description" content="你迷茫的原因往往只有一个：那就是在本该拼命去努力的年纪，想得太多，做得太少！">
+<meta property="og:description" content="前言说到屏幕适配，说简单也不简单，说难也不难，关键是看自己是否掌握了适配的机制和规则。前几天问了一个朋友他现在公司对于适配是怎么做的，然后他就跟我巴拉巴拉说了一大堆，最后总结出来说：“都是这么干的”，对于为什么这么干的解释就有点含糊不清了。正好最近公司这边也出现了部分机子的适配问题，所以就想自己整理总结一下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-21T14:23:42.215Z">
+<meta property="og:image" content="https://i.imgur.com/vK6G3Ea.png">
+<meta property="og:image" content="https://i.imgur.com/ejS0O3m.png">
+<meta property="og:image" content="https://i.imgur.com/Rpujt0D.png">
+<meta property="og:image" content="https://i.imgur.com/zR75LkJ.jpg">
+<meta property="og:image" content="https://i.imgur.com/UHqLFRp.jpg">
+<meta property="og:image" content="https://i.imgur.com/OQrVDvt.jpg">
+<meta property="og:updated_time" content="2017-09-21T14:23:42.213Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="你迷茫的原因往往只有一个：那就是在本该拼命去努力的年纪，想得太多，做得太少！">
+<meta name="twitter:title" content="Android屏幕适配机制和规则">
+<meta name="twitter:description" content="前言说到屏幕适配，说简单也不简单，说难也不难，关键是看自己是否掌握了适配的机制和规则。前几天问了一个朋友他现在公司对于适配是怎么做的，然后他就跟我巴拉巴拉说了一大堆，最后总结出来说：“都是这么干的”，对于为什么这么干的解释就有点含糊不清了。正好最近公司这边也出现了部分机子的适配问题，所以就想自己整理总结一下。">
+<meta name="twitter:image" content="https://i.imgur.com/vK6G3Ea.png">
 
 
 
@@ -131,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://xiangzhenwang.top/about/"/>
+  <link rel="canonical" href="http://xiangzhenwang.top/2017/09/18/Android屏幕适配的机制和规则/"/>
 
 
 
 
 
-  <title>about | Choshim</title>
+  <title>Android屏幕适配机制和规则 | Choshim</title>
   
 
 
@@ -281,18 +289,234 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline">about</h1>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://xiangzhenwang.top/2017/09/18/Android屏幕适配的机制和规则/">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ZhenWang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Choshim">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android屏幕适配机制和规则</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-18T18:35:34+08:00">
+                2017-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/18/Android屏幕适配的机制和规则/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/09/18/Android屏幕适配的机制和规则/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/09/18/Android屏幕适配的机制和规则/" class="leancloud_visitors" data-flag-title="Android屏幕适配机制和规则">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
+
+    <div class="post-body" itemprop="articleBody">
+
       
-    
+      
+
+      
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>说到屏幕适配，说简单也不简单，说难也不难，关键是看自己是否掌握了适配的机制和规则。前几天问了一个朋友他现在公司对于适配是怎么做的，然后他就跟我巴拉巴拉说了一大堆，最后总结出来说：“都是这么干的”，对于为什么这么干的解释就有点含糊不清了。正好最近公司这边也出现了部分机子的适配问题，所以就想自己整理总结一下。<br><br><a id="more"></a><br>其实Android官网本身就有一套适配机制，大家可能遇到适配问题直接在网上找现成的解决方案，而忽视了官网其实已经给出了自己的一套适配方案。具体的android屏幕适配有很多方法，比如drawable,layout,values等，在适配之前你需要掌握适配机制以及规则，当你掌握了之后接下来的工作才会得心应手，话不多少开始直接进入主题。</p>
+<h4 id="Android适配机制原理"><a href="#Android适配机制原理" class="headerlink" title="Android适配机制原理"></a>Android适配机制原理</h4><p>UI界面在不同平台的适配受屏幕尺寸和屏幕密度影响，Android适配机制就是在资源后面添加对这两种因素的限定，通过不同的限定区分不同的平台资源，Android在使用资源的时候会优先选择满足本平台限定的资源，再找最接近条件的，再找默认（即不加限定），通过选择适合当前平台的资源来完成不同平台的适配。<br><br>　　屏幕尺寸分为：small,normal,large,xlarge分别表示小，中，大，超大屏<br><br>　　屏幕密度分为：ldpi,mdpi,hdpi,xhdpi，它们的标准值分别是：120dpi，160dpi，240dpi，320dpi<br><br>　　通俗点讲就是：系统根据当前的屏幕大小和密度，然后动态的采用程序中提供特定的资源。</p>
+<h4 id="使用配置限定符"><a href="#使用配置限定符" class="headerlink" title="使用配置限定符"></a>使用配置限定符</h4><h5 id="Android-支持若干配置限定符，您可以通过使用短划线分隔每个限定符，向一个目录名称添加多个限定符。"><a href="#Android-支持若干配置限定符，您可以通过使用短划线分隔每个限定符，向一个目录名称添加多个限定符。" class="headerlink" title="Android 支持若干配置限定符，您可以通过使用短划线分隔每个限定符，向一个目录名称添加多个限定符。"></a>Android 支持若干配置限定符，您可以通过使用短划线分隔每个限定符，向一个目录名称添加多个限定符。<br></h5><p>1.屏幕配置提供特殊资源的配置限定符。</p>
+<p><img src="https://i.imgur.com/vK6G3Ea.png" alt=""></p>
+<p>2.Android3.2之后引入屏幕尺寸新的限定符，如下图表2</p>
+<p><img src="https://i.imgur.com/ejS0O3m.png" alt=""></p>
+<p>3.下表按优先顺序列出了有效的配置限定符；如果对资源目录使用多个限定符，则必须按照表中列出的顺序将它们添加到目录名称。</p>
+<p><img src="https://i.imgur.com/Rpujt0D.png" alt=""></p>
+<p><font color="#FF0000">需要注意的是：限定符的匹配是向下匹配，从高向低找，否则编译不过！</font></p>
+<h4 id="屏幕适配的规则"><a href="#屏幕适配的规则" class="headerlink" title="屏幕适配的规则"></a>屏幕适配的规则</h4><p>1.drawable适配过程：找与设备密度对应的目录下的图片-》往更高质量的找-》退而求其次找低质量的。<br><br>2.layout适配过程：找与设备对应的目录，找不到则从比设备分辨率低一级的目录开始依次往下找。<br><br>3.values适配过程：同layout。</p>
+<h4 id="关于屏幕分辨率适配的实践"><a href="#关于屏幕分辨率适配的实践" class="headerlink" title="关于屏幕分辨率适配的实践"></a>关于屏幕分辨率适配的实践</h4><p>在实际项目中，很多APP中都是以（values-1184x720、values-1280x720）屏幕分辨率进行适配，但是在官网的匹配属性集里并没有出现。</p>
+<p>格式：文件夹名称-大数值x小数值（大数值在前，小数值在后）；<br></p>
+<p>然而官方文档上实际推荐的是（values-sw300dp、values-sw320dp、values-sw340dp）最小宽度这种方式去适配。<br><br>像我这么热爱学习的小伙子，肯定不能放过这么好的探索机会啊。<img src="https://i.imgur.com/zR75LkJ.jpg" alt=""><br><br>于是一顿查阅，最后找到的答案是：“在实际开发过程中屏幕尺寸不够直观，android将其转换为分辨率表示，根据屏幕具体分辨率可选择相应的限定符。”<br></p>
+<p>有疑惑直接用代码说话，新建项目验证一下，验证完之后发现不对啊，总是有一些出入。最后发现在有虚拟导航栏的机子上，不走（values-1280x720）这套，心中一万个草泥马，经过多番实践发现实际匹配的分辨率是除去虚拟导航栏的分辨率（坑爹啊）。</p>
+<p>正当我欣喜若狂的时候，旁边的坑货同事突然问我在1280x720（实际是1184x720）的机子上，如果values下面有两套（values-1184x716，values-1180x720),这时候该怎么匹配。顿时就给他蒙了，卧槽怎么会有这么奇葩的问题，还是别想了，直接动手撸代码看一下效果，最后得出的结论是values-1184x716完胜。</p>
+<h5 id="总结：values匹配规则是按照差值是否相同。如果差值不同，则匹配差值小的values。如果差值相同，按照高低匹配规则，则匹配高的values。"><a href="#总结：values匹配规则是按照差值是否相同。如果差值不同，则匹配差值小的values。如果差值相同，按照高低匹配规则，则匹配高的values。" class="headerlink" title="总结：values匹配规则是按照差值是否相同。如果差值不同，则匹配差值小的values。如果差值相同，按照高低匹配规则，则匹配高的values。"></a>总结：values匹配规则是按照差值是否相同。如果差值不同，则匹配差值小的values。如果差值相同，按照高低匹配规则，则匹配高的values。</h5><p>如有不妥之处，欢迎下方留言指正！<br></p>
+<p>最后附上一张手工绘制图（请忽略我的字，原谅我是键盘手）。<img src="https://i.imgur.com/UHqLFRp.jpg" alt=""><br></p>
+<p>手工绘制图：<img src="https://i.imgur.com/OQrVDvt.jpg" alt=""></p>
+<h4 id="尊重原创，转载请注明：From-Choshim（http-xiangzhenwang-top-）"><a href="#尊重原创，转载请注明：From-Choshim（http-xiangzhenwang-top-）" class="headerlink" title="尊重原创，转载请注明：From Choshim（http://xiangzhenwang.top/）"></a>尊重原创，转载请注明：From Choshim（<a href="http://xiangzhenwang.top/）">http://xiangzhenwang.top/）</a></h4><h4 id="更多参考资料"><a href="#更多参考资料" class="headerlink" title="更多参考资料"></a>更多参考资料</h4><p><a href="https://developer.android.com/guide/topics/resources/providing-resources.html" target="_blank" rel="external">https://developer.android.com/guide/topics/resources/providing-resources.html</a><br><br><a href="http://www.jianshu.com/p/a92530c9d0cd" title="Android 屏幕适配教程、适配机制介绍" target="_blank" rel="external">http://www.jianshu.com/p/a92530c9d0cd</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="ZhenWang WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="ZhenWang Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/28/SSH Key生成/" rel="next" title="Windows下如何生成SSH Key">
+                <i class="fa fa-chevron-left"></i> Windows下如何生成SSH Key
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/21/Windows上使用Hexo+github搭建自己的博客/" rel="prev" title="Windows上使用Hexo+github搭建自己的博客">
+                Windows上使用Hexo+github搭建自己的博客 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
   </div>
 
 
@@ -301,6 +525,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -321,8 +556,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -431,6 +675,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Android适配机制原理"><span class="nav-number">2.</span> <span class="nav-text">Android适配机制原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用配置限定符"><span class="nav-number">3.</span> <span class="nav-text">使用配置限定符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Android-支持若干配置限定符，您可以通过使用短划线分隔每个限定符，向一个目录名称添加多个限定符。"><span class="nav-number">3.1.</span> <span class="nav-text">Android 支持若干配置限定符，您可以通过使用短划线分隔每个限定符，向一个目录名称添加多个限定符。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#屏幕适配的规则"><span class="nav-number">4.</span> <span class="nav-text">屏幕适配的规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于屏幕分辨率适配的实践"><span class="nav-number">5.</span> <span class="nav-text">关于屏幕分辨率适配的实践</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#总结：values匹配规则是按照差值是否相同。如果差值不同，则匹配差值小的values。如果差值相同，按照高低匹配规则，则匹配高的values。"><span class="nav-number">5.1.</span> <span class="nav-text">总结：values匹配规则是按照差值是否相同。如果差值不同，则匹配差值小的values。如果差值相同，按照高低匹配规则，则匹配高的values。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#尊重原创，转载请注明：From-Choshim（http-xiangzhenwang-top-）"><span class="nav-number">6.</span> <span class="nav-text">尊重原创，转载请注明：From Choshim（http://xiangzhenwang.top/）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更多参考资料"><span class="nav-number">7.</span> <span class="nav-text">更多参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -544,10 +804,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
@@ -565,6 +825,18 @@
       <script id="dsq-count-scr" src="https://zhenwang.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://xiangzhenwang.top/2017/09/18/Android屏幕适配的机制和规则/';
+          this.page.identifier = '2017/09/18/Android屏幕适配的机制和规则/';
+          this.page.title = 'Android屏幕适配机制和规则';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zhenwang.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
