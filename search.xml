@@ -29,8 +29,8 @@
     <url>%2F2017%2F07%2F28%2FSSH%20Key%E7%94%9F%E6%88%90%2F</url>
     <content type="text"><![CDATA[前言我们在github提交代码，经常会提示你输入账号和密码，输入一两次也就算了，关键是每次提交都需要验证，我相信很多童鞋都很不爽，那是因为你在github没有正确配置SSH Key。下面跟着我一起配置，妈妈再也不用担心我输密码了，哈哈~~~ SSH Key是什么？SSH key提供了一种与GitHub通信的方式，通过这种方式，能够在不输入密码的情况下，将GitHub作为自己的remote端服务器，进行版本控制。 检查SSH keys是否存在在git终端输入：ls -al ~/.ssh&emsp;检查SSH keys是否存在，如图： 1.本地不存在ssh key 2.本地已经生成ssh key，那就直接跳过第二步，进行第三步操作。 生成新的ssh key在git终端输入： ssh-keygen -t rsa -C &quot;XX@github&quot;&emsp;引号中是你在github上的注册邮箱，中间一直回车就好了，最后生成如下图： 将新生成的key添加到ssh-agent中 eval &quot;$(ssh-agent -s)&quot; Agent pid 59566 ssh-add ~/.ssh/id_rsa 将ssh key添加到GitHub中用文本编辑器打开id_rsa.pub文件，里面的信息即为SSH key，将这些信息复制到GitHub的Add SSH key页面即可，一下提供不同的操作系统，直接将SSH key从文件拷贝到粘贴板中，如下： mac pbcopy &lt; ~/.ssh/id_rsa.pub windows clip &lt; ~/.ssh/id_rsa.pub linux sudo apt-get install xclip OK大功告成，妈妈再也不用担心我输密码了！尊重原创，转载请注明：From Choshim（http://xiangzhenwang.top/）]]></content>
       <tags>
-        <tag>Android</tag>
         <tag>Tool</tag>
+        <tag>Android</tag>
       </tags>
   </entry>
 </search>
